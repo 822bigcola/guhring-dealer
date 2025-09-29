@@ -1,0 +1,49 @@
+/* Wrapper chứa bảng */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto; /* ✅ Cuộn ngang nếu bảng rộng */
+  border: 1px solid #dee2e6;
+  margin-top: 12px;
+  border-radius: 6px;
+  background-color: #fff;
+}
+
+/* Bảng chính */
+.table {
+  width: 100%;
+  table-layout: auto; /* ✅ Tự động fit cột theo nội dung */
+  border-collapse: collapse;
+  min-width: 620px;
+}
+
+/* Tiêu đề và dữ liệu */
+.table th,
+.table td {
+  box-sizing: border-box;
+  padding: 12px 10px;
+  border: 1px solid #dee2e6;
+  white-space: normal; /* ✅ Cho phép xuống dòng nếu cần */
+  overflow: visible; /* ✅ Không ẩn nội dung */
+  text-overflow: unset; /* ✅ Không hiện "..." */
+  font-size: 14px;
+  text-align: left;
+  vertical-align: top; /* ✅ Căn nội dung đầu dòng khi nhiều dòng */
+}
+
+/* Sticky header */
+.table thead th.sticky-header {
+  position: sticky;
+  top: 0;
+  background-color: #f8f9fa;
+  z-index: 2;
+  border-bottom: 2px solid #dee2e6;
+  font-weight: bold;
+}
+
+/* Dòng không có dữ liệu */
+.no-data {
+  text-align: center;
+  padding: 20px;
+  font-style: italic;
+  color: #777;
+}

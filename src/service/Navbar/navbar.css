@@ -1,0 +1,40 @@
+.container-fluid {
+  width: 100%;
+}
+
+/* Điều chỉnh item nằm ngang đẹp */
+.nav-item {
+  display: flex;
+  align-items: center;
+}
+
+/* Link cơ bản */
+.nav-link {
+  color: #222;
+  border-radius: 6px;
+  margin-left: 6px;
+  padding: 8px 12px;
+  transition: all 0.2s ease-in-out;
+  font-weight: 500;
+}
+
+/* Hover tinh tế hơn */
+.nav-link:hover {
+  transform: scale(1.03);
+  background-color: rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Active: làm nổi bật rõ ràng nhưng không quá chói */
+.nav-link.active {
+  transform: scale(1.03);
+  background-color: rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Khi chứa icon + username */
+.nav-item span {
+  margin-left: 6px;
+  font-weight: 500;
+  color: #333;
+}
