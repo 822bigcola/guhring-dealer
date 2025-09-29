@@ -1,6 +1,7 @@
 /* Container chính */
 .artikel-container {
-  margin: 88px auto 40px auto;
+  width: 90%;
+  margin: 120px auto 40px auto;
   padding: 20px;
   background-color: #1a1a1a;
   color: #f1f1f1;
