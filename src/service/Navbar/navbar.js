@@ -85,6 +85,15 @@ class NavbarGuhring extends React.Component {
                       <li>
                         <NavLink
                           className="dropdown-item"
+                          to="/change-password"
+                          onClick={this.handleNavClick}
+                        >
+                          🔑 Change Password
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink
+                          className="dropdown-item"
                           to="/logout"
                           onClick={this.handleNavClick}
                         >

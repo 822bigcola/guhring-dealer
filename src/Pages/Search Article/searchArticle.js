@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import TableCustom from "../../service/tableCustom/table";
+import { isTokenExpired } from "../../service/service";
 import { toast } from "react-toastify";
 import withRouter from "../../HOC/withRouter";
 import InfiniteScroll from "react-infinite-scroll-component";
@@ -45,18 +46,22 @@ class SearchArtikel extends React.Component {
   }
 
   handleSearch = async (e) => {
-    e.preventDefault();
-    window.scrollTo({ top: 0, behavior: "smooth" });
-    this.setState(
-      {
-        results: [],
-        page: 1,
-        hasMore: true,
-        loading: true,
-        searchActive: true,
-      },
-      () => this.fetchMoreData(true)
-    );
+    if (!isTokenExpired()) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      this.setState(
+        {
+          results: [],
+          page: 1,
+          hasMore: true,
+          loading: true,
+          searchActive: true,
+        },
+        () => this.fetchMoreData(true)
+      );
+    } else {
+      this.props.router.navigate("/logout");
+    }
   };
 
   fetchMoreData = async (isFirstLoad = false) => {

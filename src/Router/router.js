@@ -8,6 +8,7 @@ import NavbarGuhring from "../service/Navbar/navbar";
 import FooterGuhring from "../service/Footer/footer";
 import "./router.css";
 import LoadingPage from "../service/Loading/loading";
+import ChangePassword from "../Pages/changePassword/changePassword";
 
 class RouterPages extends React.Component {
   state = { username: "", isloading: false };
@@ -43,6 +44,12 @@ class RouterPages extends React.Component {
                     path="/logout"
                     element={
                       <LogoutPage updateUsername={this.handleUsernameChange} />
+                    }
+                  />
+                  <Route
+                    path="/change-password"
+                    element={
+                      <ChangePassword isloading={this.handleIsLoadingChange} />
                     }
                   />
                   {/* Trang chủ (ví dụ) */}
