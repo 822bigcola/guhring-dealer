@@ -46,22 +46,24 @@ class SearchArtikel extends React.Component {
   }
 
   handleSearch = async (e) => {
-    if (!isTokenExpired()) {
-      e.preventDefault();
-      window.scrollTo({ top: 0, behavior: "smooth" });
-      this.setState(
-        {
-          results: [],
-          page: 1,
-          hasMore: true,
-          loading: true,
-          searchActive: true,
-        },
-        () => this.fetchMoreData(true)
-      );
-    } else {
-      this.props.router.navigate("/logout");
+    const token = sessionStorage.getItem("token");
+    if (isTokenExpired(token)) {
+      toast.error("🔒 Session expired. Please login again.");
+      this.props.router.navigate("/login");
+      return;
     }
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    this.setState(
+      {
+        results: [],
+        page: 1,
+        hasMore: true,
+        loading: true,
+        searchActive: true,
+      },
+      () => this.fetchMoreData(true)
+    );
   };
 
   fetchMoreData = async (isFirstLoad = false) => {
