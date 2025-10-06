@@ -11,7 +11,7 @@ class NavbarGuhring extends React.Component {
   };
 
   render() {
-    const username = this.props.username || sessionStorage.getItem("username");
+    let username = this.props.username || sessionStorage.getItem("username");
 
     return (
       <div className="container-fluid fixed-top bg-white shadow-sm">
@@ -74,13 +74,17 @@ class NavbarGuhring extends React.Component {
                       id="accountDropdown"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
-                      style={{ background: "none", border: "none" }}
+                      style={{
+                        background: "none",
+                        border: "none",
+                      }}
                     >
-                      👤 Account
+                      👤 {username.charAt(0).toUpperCase() + username.slice(1)}
                     </button>
                     <ul
                       className="dropdown-menu"
                       aria-labelledby="accountDropdown"
+                      style={{ right: 0, left: "auto" }}
                     >
                       <li>
                         <NavLink
@@ -104,7 +108,6 @@ class NavbarGuhring extends React.Component {
                       {/*thêm nhiều mục khác tại đây */}
                     </ul>
                   </li>
-                  <span className="nav-link">{username}</span>
                 </>
               ) : (
                 <li className="nav-item d-flex align-items-center">
